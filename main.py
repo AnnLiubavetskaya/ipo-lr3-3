@@ -1,6 +1,6 @@
 day_in_month = int(input("Введите день в месяце(число): "))
 month = int(input("Введите номер месяца: "))
-if ((day_in_month < 1 or day_in_month > 31) or (month < 1 or month > 12)):
+if ((day_in_month < 1 or day_in_month > 31) or (month < 1 or month > 12) or (month == 2 and day_in_month > 29):
     print("Вы некорректно ввели дату,такой даты не существует!")
 else:
     if month == 12 or month == 1 or month == 2: #если месяц будет равен 12 или 1 или 2 то будет выполняться 7 строчка
