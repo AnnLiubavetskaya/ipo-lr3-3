@@ -1,13 +1,21 @@
 day_in_month = int(input("Введите день в месяце(число): "))
 month = int(input("Введите номер месяца: "))
-if ((day_in_month < 1 or day_in_month > 31) or (month < 1 or month > 12) or (month == 2 and day_in_month > 29):
+if (day_in_month < 1 or day_in_month > 31) or (month < 1 or month > 12) or (month == 2 and day_in_month > 29):
     print("Вы некорректно ввели дату,такой даты не существует!")
 else:
-    if month == 12 or month == 1 or month == 2: #если месяц будет равен 12 или 1 или 2 то будет выполняться 7 строчка
-        print("зима") #выводим что это за сезон
-    elif month == 3 or month == 4 or month == 5: #если месяц будет равен 3 или 4 или 5 то будет выполняться 9 строчка
-        print("весна") #выводим что это за сезон
-    elif month == 6 or month == 7 or month == 8: #если месяц будет равен 6 или 7 или 8 то будет выполняться 11 строчка
-        print("лето") #выводим что это за сезон
-    elif month == 9 or month == 10 or month == 11: #если месяц будет равен 9 или 10 или 11 то будет выполняться 13 строчка
-        print("осень") #выводим что это за сезон
+    days_in_month = [31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
+if day_in_month > days_in_month[month - 1]:
+        print("Некорректный ввод даты.")
+else:
+        # Проверяем, к какому времени года относится введенная дата
+        if (month == 3 and day_in_month >= 1) or (month in [4, 5]) or (month == 6 and day_in_month < 1):
+            season = "Весна"
+        elif (month == 6 and day_in_month >= 1) or (month in [7, 8]) or (month == 9 and day_in_month < 1):
+            season = "Лето"
+        elif (month == 9 and day_in_month >= 1) or (month in [10, 11]) or (month == 12 and day_in_month < 1):
+            season = "Осень"
+        else:
+            season = "Зима"
+
+     
+print(f"Ваша дата относится к сезону: {season}")
